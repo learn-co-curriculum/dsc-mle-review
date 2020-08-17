@@ -19,43 +19,43 @@ To demonstrate this, imagine a simple coin flipping example. Let's say that you 
 
 ## Log-likelihood
 
-When calculating maximum likelihood, it is common to use the log-likelihood, as taking the logarithm can simplify calculations. For example, taking the logarithm of a set of products allows you to decompose the problem from products into sums. (You may recall from high school mathematics that $x^{(a+b)} = x^a \bullet x^b$. Similarly, taking the logarithm of both sides of a function allows you to transform products into sums. 
+When calculating maximum likelihood, it is common to use the log-likelihood, as taking the logarithm can simplify calculations. For example, taking the logarithm of a set of products allows you to decompose the problem from products into sums. (You may recall from high school mathematics that  <img src="https://render.githubusercontent.com/render/math?math=x^{(a%2bb)} = x^a * x^b"> . Similarly, taking the logarithm of both sides of a function allows you to transform products into sums. 
 
 ## MLE for a binomial variable
 
 Let's take a deeper mathematical investigation into the coin flipping example above. 
 
-In general, if you were to observe $n$ flips, you would have observations $y_1, y_2, ..., y_n$.
+In general, if you were to observe  <img src="https://render.githubusercontent.com/render/math?math=n"> flips, you would have observations  <img src="https://render.githubusercontent.com/render/math?math=y_1, y_2, ..., y_n"> .
 
 In maximum likelihood estimation, you are looking to maximize the likelihood:  
 
-$L(p) = L(y_1, y_2, ..., y_n | p) = p^y (1-p)^{n-y}$  where $ y = \sum_{i=1}^{n}y_i$
+ <img src="https://render.githubusercontent.com/render/math?math=L(p) = L(y_1, y_2, ..., y_n | p) = p^y (1-p)^{n-y}">  where  <img src="https://render.githubusercontent.com/render/math?math=y = \sum_{i=1}^{n}y_i"> 
 
 Taking the log of both sides:  
 
-$ln[L(p)] = ln[p^y (1-p)^{n-y}] = y ln(p)+(n-y)ln(1-p)$
+ <img src="https://render.githubusercontent.com/render/math?math=ln[L(p)] = ln[p^y (1-p)^{n-y}] = y ln(p)%2b(n-y)ln(1-p)"> 
 
-If $y = 1, 2, ..., n-1$ the derivative of $ln[L(p)]$ with respect to $p$ is:
+If  <img src="https://render.githubusercontent.com/render/math?math=y = 1, 2, ..., n-1"> the derivative of  <img src="https://render.githubusercontent.com/render/math?math=ln[L(p)]"> with respect to  <img src="https://render.githubusercontent.com/render/math?math=p"> is:
 
-$\frac{d\,ln[L(p)]}{dp} = y (\frac{1}{p})+(n-y)(\frac{-1}{1-p})$  
+ <img src="https://render.githubusercontent.com/render/math?math=\frac{d\,ln[L(p)]}{dp} = y (\frac{1}{p})%2b(n-y)(\frac{-1}{1-p})">  
 
 As you've seen previously, the maximum will then occur when the derivative equals zero:  
 
-$0 = y (\frac{1}{p})+(n-y)(\frac{-1}{1-p})$
+ <img src="https://render.githubusercontent.com/render/math?math=0 = y (\frac{1}{p})%2b(n-y)(\frac{-1}{1-p})"> 
 
 Distributing, you have
 
-$0 = \frac{y}{p} - \frac{n-y}{1-p}$
+ <img src="https://render.githubusercontent.com/render/math?math=0 = \frac{y}{p} - \frac{n-y}{1-p}"> 
 
 And solving for p: 
 
-$ \frac{n-y}{1-p} = \frac{y}{p} $
+ <img src="https://render.githubusercontent.com/render/math?math=\frac{n-y}{1-p} = \frac{y}{p} "> 
 
-$p(n-y) = \frac{y(1-p)}{p}$  
-$\frac{n-y}{y} = \frac{1-p}{p}$  
-$\frac{n}{y}-1 = \frac{1}{p}-1$  
-$\frac{n}{y} = \frac{1}{p} $  
-$p = \frac{y}{n}$  
+ <img src="https://render.githubusercontent.com/render/math?math=p(n-y) = \frac{y(1-p)}{p}">  
+ <img src="https://render.githubusercontent.com/render/math?math=\frac{n-y}{y} = \frac{1-p}{p}">  
+ <img src="https://render.githubusercontent.com/render/math?math=\frac{n}{y}-1 = \frac{1}{p}-1">  
+ <img src="https://render.githubusercontent.com/render/math?math=\frac{n}{y} = \frac{1}{p} ">  
+ <img src="https://render.githubusercontent.com/render/math?math=p = \frac{y}{n}">  
 
 And voilà, you've verified the intuitive solution discussed above; the maximum likelihood for a binomial sample is the observed frequency!
  
